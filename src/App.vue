@@ -1,7 +1,6 @@
 <template>
+
 <Mainview></Mainview>   
-
-
 </template>
 
 <script setup>

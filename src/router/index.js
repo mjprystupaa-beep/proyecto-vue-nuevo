@@ -1,8 +1,15 @@
 import { createRouter, createWebHistory } 
 from 'vue-router'
+import * as yup from 'yup';
 
-import contador from '@/modelus/contador/components/contador.vue'
-import ListaDeTareas from '@/modelus/ListaDeTareas/components/ListaDeTareas.vue'  
+const schema = yup.object({
+  nombre: yup.string().required(),
+  email: yup.string().email().required(),
+});
+
+
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,27 +24,25 @@ const router = createRouter({
     path:'/contador',
     name:'contador',
   
-    component: () => import('../modelus/contador/components/contador.vue')
+    component: () => import('../modules/contador/components/contador.vue')
   },
   { 
     path:'/ListaDeTareas',
     name:'ListaDeTareas',
   
-    component: () => import('../modelus/ListaDeTareas/components/ListaDeTareas.vue')
+    component: () => import('../modules/ListaDeTareas/components/ListaDeTareas.vue')
     
   },
-  {
+{ 
     path:'/registrar',
     name:'registrar',
   
-    component: () => import('../modelus/registro/views/registrarView.vue')
+    component: () => import('../modules/registro/views/RegistrarView.vue')
     
-  },
+  }
 ] 
 
 
 })
 
 export default router
-
-
